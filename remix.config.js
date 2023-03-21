@@ -13,4 +13,7 @@ module.exports = {
   // serverBuildPath: "api/index.js",
   // publicPath: "/build/",
   // devServerPort: 8002
+  future: {
+    v2_errorBoundary: true,
+  },
 };
