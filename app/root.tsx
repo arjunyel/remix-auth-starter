@@ -4,10 +4,25 @@ import { rootAuthLoader } from "@clerk/remix/ssr.server";
 import { ClerkApp, ClerkCatchBoundary } from "@clerk/remix";
 import styles from "~/styles/shared.css";
 import Header from "~/components/Header";
+import { getClerkDebugHeaders } from "@clerk/remix/ssr.server";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
+
+export function headers({
+  actionHeaders,
+  loaderHeaders,
+  parentHeaders,
+}: {
+  actionHeaders: Headers;
+  loaderHeaders: Headers;
+  parentHeaders: Headers;
+}) {
+  return {
+    ...getClerkDebugHeaders(loaderHeaders),
+  };
+}
 
 export function links() {
   return [
